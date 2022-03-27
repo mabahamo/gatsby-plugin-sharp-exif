@@ -15,15 +15,3 @@ export function onCreateNode({ node, getNode, actions }) {
       .catch((err) => console.error(err));
   }
 }
-
-exports.createSchemaCustomization = ({ actions }) => {
-  const { createTypes } = actions;
-  createTypes(`
-    type ExifMeta {
-      keywords: [String]
-    }
-    type exif implements Node {
-      meta: ExifMeta
-    }
-  `);
-};

@@ -1,4 +1,4 @@
-import {extractExifData } from "./common";
+import { extractExifData } from "./common";
 
 export function onCreateNode({ node, getNode, actions }) {
   const { createNodeField } = actions;

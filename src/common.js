@@ -11,7 +11,7 @@ export function transformExifToNodeData(exifData) {
     gps,
     meta: {
       dateTaken: exifData?.DateTimeOriginal,
-      keywords: exifData?.Keywords || [],
+      keywords: exifData?.Keywords,
     },
     raw: exifData,
   };
@@ -22,4 +22,3 @@ export function extractExifData(absolutePath) {
     return transformExifToNodeData(exifData);
   });
 }
-

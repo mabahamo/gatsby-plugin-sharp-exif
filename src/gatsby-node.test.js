@@ -1,4 +1,4 @@
-import {extractExifData, transformExifToNodeData} from "./common";
+import { extractExifData, transformExifToNodeData } from "./common";
 
 test("empty coordinates", () => {
   const input = {};
@@ -6,7 +6,7 @@ test("empty coordinates", () => {
     raw: input,
     meta: {
       dateTaken: undefined,
-      keywords: [],
+      keywords: undefined,
     },
     gps: {
       longitude: null,
@@ -21,7 +21,7 @@ test("metadata extraction", () => {
     raw: input,
     meta: {
       dateTaken: input.DateTimeOriginal,
-      keywords: [],
+      keywords: undefined,
     },
     gps: {
       longitude: null,
@@ -41,5 +41,5 @@ test("extract keywords", async () => {
 
 test("do not fail with empty metadata", async () => {
   const exifData = await extractExifData("./__tests__/no-metadata.jpg");
-  expect(exifData.meta.keywords).toEqual([]);
+  expect(exifData.meta.keywords).toEqual(undefined);
 });
